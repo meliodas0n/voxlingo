@@ -46,5 +46,3 @@ Thumbs.db
 # Environment files
 .env
 .venv
-env
-venv

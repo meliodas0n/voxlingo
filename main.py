@@ -18,4 +18,4 @@ class App:
 
 if __name__ == "__main__":
   app = App()
-  app.run(width=1920, height=1080, title="Main", bg="black")
+  app.run(width=1920, height=1080, title="Main", bg="white")

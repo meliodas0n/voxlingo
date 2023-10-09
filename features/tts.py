@@ -1,1 +1,5 @@
-print('this is for text to speech')
+def main():
+  pass
+
+if __name__ == "__main__":
+  main()

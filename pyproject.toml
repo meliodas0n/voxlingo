@@ -6,7 +6,8 @@ authors = ["meliodas0n <mrunalnarayana@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.12"
+tts = "^0.17.8"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -32,7 +33,7 @@ jsonschema = "4.17.3"
 keyring = "24.2.0"
 more-itertools = "10.1.0"
 msgpack = "1.0.7"
-packaging = "23.2"
+packaging = "23.1"
 pexpect = "4.8.0"
 pkginfo = "1.9.6"
 platformdirs = "3.11.0"

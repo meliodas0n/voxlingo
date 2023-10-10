@@ -10,16 +10,16 @@ class TextToSpeech:
   def __init__(self):
     self.device = "cuda" if torch.cuda.is_available() else "cpu"
     model_name = TTS().list_models()[0]
-    self.tts = TTS(model_name).to(self.device)    
-  
+    self.tts = TTS(model_name).to(self.device)
+
   def run(self, text, debug=False) -> None:
     if not os.path.exists(f"{Path(__file__).parent.parent}/output"):
       os.makedirs(f"{Path(__file__).parent.parent}/output")
     self.tts.tts_to_file(text=text, speaker=self.tts.speakers[0], language=self.tts.languages[0], file_path=f"{Path(__file__).parent.parent}/output/output.wav")
     print('output wav file generated!!')
-      
+
   def get_device(self):
-    return f"Using Device {self.device}"      
+    return f"Using Device {self.device}"
 
 
 if __name__ == "__main__":
@@ -33,5 +33,11 @@ if __name__ == "__main__":
   tts = TTS(model_name).to(device)
   if not os.path.exists(f"{Path(__file__).parent.parent}/output"):
     os.makedirs(f"{Path(__file__).parent.parent}/output")
-  tts.tts_to_file(text=text, speaker=tts.speakers[0], language=tts.languages[0], file_path=f"{Path(__file__).parent.parent}/output/output.wav")
+  waveform, alignment, mel_spec = tts(text)
+  with open("output.wav", 'wb') as f:
+    f.write(waveform)
+  
+  from pydub import AudioSegment
+  sound = AudioSegment.from_wav("output.wav")
+  sound.play()
   print('done')

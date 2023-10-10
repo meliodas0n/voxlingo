@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
 tts = "^0.17.8"
+pydub = "^0.25.1"
 
 
 [tool.poetry.group.dev.dependencies]
